@@ -28,3 +28,4 @@ class Black4xStrategy(Strategy):
         score = 35 + 35 * min(float(row["body_ratio"]), 1.0) + alignment_bonus(candles, direction)
         reasons = [f"previous candle {'bullish' if direction == CALL else 'bearish'} "
                    f"(body {row['body_ratio']:.0%} of range)"]
+        return build_candidate(candles, context, self.name, direction, score, reasons)
